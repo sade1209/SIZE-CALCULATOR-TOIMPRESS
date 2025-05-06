@@ -28,14 +28,15 @@
     }
 
     .logo {
-      max-width: 150px;
-      margin: 0 auto 20px;
+      width: 150px;
       display: block;
+      margin: 0 auto 1rem auto;
     }
 
     h1 {
       color: #133215;
       margin-bottom: 1rem;
+      font-size: 1.5rem;
     }
 
     label {
@@ -51,6 +52,7 @@
       margin-top: 0.5rem;
       border-radius: 10px;
       border: 1px solid #ccc;
+      font-size: 1rem;
     }
 
     button {
@@ -79,7 +81,8 @@
 </head>
 <body>
   <div class="calculator">
-    <img src="To Impress Logo File Vid-04.png" alt="To Impress Logo" class="logo" />
+    <img src="logo.png" alt="To Impress Logo" class="logo" />
+
     <h1>Bra Size Calculator</h1>
 
     <label for="underbust">Underbust (in inches)</label>
@@ -118,4 +121,21 @@
 
       for (let entry of sizeChart) {
         if (underbust >= entry.underMin && underbust <= entry.underMax) {
-          for (let
+          for (let i = 0; i < entry.cups.length; i++) {
+            const [min, max] = entry.cups[i].split("-").map(Number);
+            if (bust >= min && bust <= max) {
+              const result = `${entry.band}${cupLetters[i]}`;
+              document.getElementById("result").innerText = `Your Bra Size is: ${result}`;
+              return;
+            }
+          }
+          document.getElementById("result").innerText = `Could not determine cup size for bust ${bust} with band ${entry.band}`;
+          return;
+        }
+      }
+
+      document.getElementById("result").innerText = "Measurement not within supported range.";
+    }
+  </script>
+</body>
+</html>
