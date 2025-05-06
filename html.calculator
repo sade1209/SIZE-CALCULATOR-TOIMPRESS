@@ -29,7 +29,8 @@
 
     .logo {
       max-width: 150px;
-      margin-bottom: 1rem;
+      margin: 0 auto 20px;
+      display: block;
     }
 
     h1 {
@@ -78,8 +79,7 @@
 </head>
 <body>
   <div class="calculator">
-    <!-- Logo added here -->
-    <img src="To Impress Logo File Vid-04.png" alt="To Impress Clothing Logo" class="logo" />
+    <img src="To Impress Logo File Vid-04.png" alt="To Impress Logo" class="logo" />
     <h1>Bra Size Calculator</h1>
 
     <label for="underbust">Underbust (in inches)</label>
@@ -102,4 +102,20 @@
       { band: 38, underMin: 33, underMax: 34, cups: ["38-39", "39-40", "40-41", "41-42", "42-43", "43-44"] },
       { band: 40, underMin: 35, underMax: 36, cups: ["40-41", "41-42", "42-43", "43-44", "44-45", "45-46"] },
       { band: 42, underMin: 37, underMax: 38, cups: ["42-43", "43-44", "44-45", "45-46", "46-47", "47-48"] },
-      { band: 44, underMin: 39, underMax: 40, cups: ["44-45",]()
+      { band: 44, underMin: 39, underMax: 40, cups: ["44-45", "45-46", "46-47", "47-48", "48-49", "49-50"] }
+    ];
+
+    const cupLetters = ["A", "B", "C", "D", "E", "F"];
+
+    function calculateBraSize() {
+      const underbust = parseFloat(document.getElementById("underbust").value);
+      const bust = parseFloat(document.getElementById("bust").value);
+
+      if (isNaN(underbust) || isNaN(bust)) {
+        document.getElementById("result").innerText = "Please enter valid numbers.";
+        return;
+      }
+
+      for (let entry of sizeChart) {
+        if (underbust >= entry.underMin && underbust <= entry.underMax) {
+          for (let
