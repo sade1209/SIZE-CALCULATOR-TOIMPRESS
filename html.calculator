@@ -10,7 +10,7 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #F3E8D3; /* Updated background color */
+      background: #F3E8D3;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -27,8 +27,13 @@
       text-align: center;
     }
 
+    .logo {
+      max-width: 150px;
+      margin-bottom: 1rem;
+    }
+
     h1 {
-      color: #133215; /* Updated title color */
+      color: #133215;
       margin-bottom: 1rem;
     }
 
@@ -73,7 +78,10 @@
 </head>
 <body>
   <div class="calculator">
+    <!-- Logo added here -->
+    <img src="To Impress Logo File Vid-04.png" alt="To Impress Clothing Logo" class="logo" />
     <h1>Bra Size Calculator</h1>
+
     <label for="underbust">Underbust (in inches)</label>
     <input type="number" id="underbust" placeholder="e.g., 30" />
 
@@ -94,37 +102,4 @@
       { band: 38, underMin: 33, underMax: 34, cups: ["38-39", "39-40", "40-41", "41-42", "42-43", "43-44"] },
       { band: 40, underMin: 35, underMax: 36, cups: ["40-41", "41-42", "42-43", "43-44", "44-45", "45-46"] },
       { band: 42, underMin: 37, underMax: 38, cups: ["42-43", "43-44", "44-45", "45-46", "46-47", "47-48"] },
-      { band: 44, underMin: 39, underMax: 40, cups: ["44-45", "45-46", "46-47", "47-48", "48-49", "49-50"] }
-    ];
-
-    const cupLetters = ["A", "B", "C", "D", "E", "F"];
-
-    function calculateBraSize() {
-      const underbust = parseFloat(document.getElementById("underbust").value);
-      const bust = parseFloat(document.getElementById("bust").value);
-
-      if (isNaN(underbust) || isNaN(bust)) {
-        document.getElementById("result").innerText = "Please enter valid numbers.";
-        return;
-      }
-
-      for (let entry of sizeChart) {
-        if (underbust >= entry.underMin && underbust <= entry.underMax) {
-          for (let i = 0; i < entry.cups.length; i++) {
-            const [min, max] = entry.cups[i].split("-").map(Number);
-            if (bust >= min && bust <= max) {
-              const result = `${entry.band}${cupLetters[i]}`;
-              document.getElementById("result").innerText = `Your Bra Size is: ${result}`;
-              return;
-            }
-          }
-          document.getElementById("result").innerText = `Could not determine cup size for bust ${bust} with band ${entry.band}`;
-          return;
-        }
-      }
-
-      document.getElementById("result").innerText = "Measurement not within supported range.";
-    }
-  </script>
-</body>
-</html>
+      { band: 44, underMin: 39, underMax: 40, cups: ["44-45",]()
