@@ -77,6 +77,12 @@
       font-weight: 600;
       color: #333;
     }
+
+    .extra-image {
+      width: 100%;
+      margin-top: 1.5rem;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -92,7 +98,11 @@
     <input type="number" id="bust" placeholder="e.g., 34" />
 
     <button onclick="calculateBraSize()">Calculate My Size</button>
+
     <p id="result"></p>
+
+    <!-- Additional Image (Bra Fitting Guide) -->
+    <img src="bra-fitting-guide.jpg" alt="Bra Fitting Guide" class="extra-image" />
   </div>
 
   <script>
