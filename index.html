@@ -9,26 +9,26 @@
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 2rem;
       background: #F3E8D3;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      min-height: 100vh;
     }
 
     .calculator {
       background: white;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      padding: 2rem;
-      max-width: 400px;
-      width: 90%;
+      padding: 1.5rem;
+      max-width: 320px;
+      width: 100%;
       text-align: center;
+      margin-bottom: 2rem;
     }
 
     .logo {
-      width: 150px;
+      width: 120px;
       display: block;
       margin: 0 auto 1rem auto;
     }
@@ -36,7 +36,7 @@
     h1 {
       color: #133215;
       margin-bottom: 1rem;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
 
     label {
@@ -44,6 +44,7 @@
       margin-top: 1rem;
       text-align: left;
       color: #333;
+      font-size: 0.95rem;
     }
 
     input {
@@ -52,36 +53,38 @@
       margin-top: 0.5rem;
       border-radius: 10px;
       border: 1px solid #ccc;
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
     button {
-      background: #7a4bc6;
+      background: #133215;
       color: white;
-      padding: 12px 20px;
+      padding: 10px 16px;
       border: none;
       border-radius: 10px;
-      margin-top: 1.5rem;
+      margin-top: 1.2rem;
       cursor: pointer;
       font-weight: 600;
       width: 100%;
+      font-size: 0.95rem;
     }
 
     button:hover {
-      background: #6533b3;
+      background: #0f2812;
     }
 
     #result {
-      margin-top: 1.5rem;
-      font-size: 1.2rem;
+      margin-top: 1.2rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #333;
     }
 
     .extra-image {
-      width: 100%;
-      margin-top: 1.5rem;
-      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -100,10 +103,10 @@
     <button onclick="calculateBraSize()">Calculate My Size</button>
 
     <p id="result"></p>
-
-    <!-- ✅ Correct image path -->
-    <img src="bra-fitting-guide.png" alt="Bra Fitting Guide" class="extra-image" />
   </div>
+
+  <!-- Larger image -->
+  <img src="bra-fitting-guide.png" alt="Bra Fitting Guide" class="extra-image" />
 
   <script>
     const sizeChart = [
